@@ -11,8 +11,9 @@ const Movie = {
 // Creazione della funzione di App
 function App() {
   const [movies, setMovies] = useState(watchMovies);
+  const [newMovies, setNewMovies] = useState(Movie);
 
-  console.log(watchMovies);
+  console.log(Movie);
 
   return (
     <>
