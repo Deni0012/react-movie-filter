@@ -3,12 +3,22 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import watchMovies from './data/movies'
 
+// Creazione di const per gestire i dati del nuovo film
+const Movie = {
+  title: '',
+  genere: ''
+}
+
+
 
 // Creazione della funzioni di App
 function App() {
 
   // Const che contiene la lista completa dei film
   const [movies, setMovies] = useState(watchMovies);
+
+  // Const per gestire i dati del nuovo film che viene scritto
+  const [newMovies, setNewMovies] = useState(Movie);
 
   // Const per contenere la lista filtrata dei film 
   const [filterdMovies, setFilterdMovies] = useState(movies);
@@ -31,7 +41,7 @@ function App() {
     };
 
     setMovies([...movies, newMoviesObject]);
-    setNewMovies({ title: '', genere: 'Thriller' });
+    setNewMovies({ title: '', genere: '' });
   }
 
   // useEffect che si attiva ogni volta che ricarichiamo la pagina
@@ -79,7 +89,9 @@ function App() {
       <form onSubmit={newMoviesSubmit}>
 
         {/* Select per scegliere il genere */}
-        <select>
+        <select
+          value={newMovies.genere}
+          onChange={(e) => setNewMovies({ ...newMovies, genere: e.target.value })}>
           <option value="Thriller">Thriller</option>
           <option value="Fantascienza">Fantascienza</option>
           <option value="Azione">Azione</option>
