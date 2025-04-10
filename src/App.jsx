@@ -88,6 +88,13 @@ function App() {
       {/* Form per aggiungere un nuovo film */}
       <form onSubmit={newMoviesSubmit}>
 
+        {/* Input per aggiungere un film */}
+        <input
+          type="text"
+          placeholder="Aggiungi un film"
+          value={newMovies.title}
+          onChange={(e) => setNewMovies({ ...newMovies, title: e.target.value })}
+        />
 
         {/* Select per scegliere il genere */}
         <select
