@@ -1,11 +1,18 @@
 // Importazioni di base
 import { useState, useEffect } from 'react'
 import './App.css'
-import './data/movies'
+import watchMovies from './data/movies'
+
+const Movie = {
+  title: '',
+  genere: 'Thriller'
+}
 
 // Creazione della funzione di App
 function App() {
-  const [] = useState(0)
+  const [movies, setMovies] = useState(watchMovies);
+
+  console.log(watchMovies);
 
   return (
     <>
