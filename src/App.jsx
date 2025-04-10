@@ -9,8 +9,6 @@ const Movie = {
   genere: ''
 }
 
-
-
 // Creazione della funzioni di App
 function App() {
 
@@ -76,6 +74,8 @@ function App() {
           <option value="Azione">Azione</option>
         </select>
 
+        {/* Input per cercare per titolo */}
+        <input type="text" value={searchTitle} onChange={e => setSearchTitle(e.target.value)} />
       </div>
 
       {/* Lista dei film filtrati */}
@@ -88,10 +88,12 @@ function App() {
       {/* Form per aggiungere un nuovo film */}
       <form onSubmit={newMoviesSubmit}>
 
+
         {/* Select per scegliere il genere */}
         <select
           value={newMovies.genere}
-          onChange={(e) => setNewMovies({ ...newMovies, genere: e.target.value })}>
+          onChange={(e) => setNewMovies({ ...newMovies, genere: e.target.value })}
+        >
           <option value="Thriller">Thriller</option>
           <option value="Fantascienza">Fantascienza</option>
           <option value="Azione">Azione</option>
